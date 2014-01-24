@@ -30,14 +30,17 @@ print(total_lines)
 #lists of lists that pair feedback with percent score on an assignment
 
 allwords = list()
+word_counts = defaultdict()
 for line in feedback:
     linewords = line[0].split()
     for word in allwords:           #could do a regex match here
-        allwords.append(word)
+        word_counts[word] = word_counts[word] + 1
+        # allwords.append(word)
 
-word_counts = defaultdict(int)
-for word in allwords:
-    word_counts[word] += 1
-
-print(word_counts)
+#word_counts = defaultdict(int)
+#for word in allwords:
+    #word_counts[word] += 1
+sorted_keys = sorted(word_counts.keys(), key=lambda x: -word_counts[x])
+for key in sorted_keys
+    print key+'\t'+word_counts[key]
     #create a dictionary with lists of words with the value as the percent score
