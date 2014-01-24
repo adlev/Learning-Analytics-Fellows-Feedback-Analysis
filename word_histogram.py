@@ -41,6 +41,6 @@ for line in feedback:
 #for word in allwords:
     #word_counts[word] += 1
 sorted_keys = sorted(word_counts.keys(), key=lambda x: -word_counts[x])
-for key in sorted_keys
+for key in sorted_keys:
     print key+'\t'+word_counts[key]
     #create a dictionary with lists of words with the value as the percent score
