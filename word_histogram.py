@@ -35,9 +35,15 @@ for line in feedback:
     for word in allwords:           #could do a regex match here
         allwords.append(word)
 
+        #create sentiment dict based on the score-> continuous attribute based on score to add words to
+
 word_counts = defaultdict(int)
 for word in allwords:
     word_counts[word] += 1
 
+
+
 print(word_counts)
     #create a dictionary with lists of words with the value as the percent score
+
+    #key = word, value = count
