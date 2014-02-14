@@ -5,6 +5,7 @@ from collections import defaultdict
 from ngram import NGram
 from math import log,fabs
 
+#returns True if the line is a duplicate
 def remove_copy(line):
     h = hashlib.md5(line).hexdigest()
     if h in hash_dict.keys():
@@ -12,6 +13,7 @@ def remove_copy(line):
     else:
         hash_dict[h] = 1
         return False
+
 
 def clean_word_counts(list):
     word_counts = defaultdict(int)
@@ -44,6 +46,7 @@ with open('/Users/adam/Desktop/SI110-Gradeswh.csv', 'rU') as csvfile:
                 this_line.append(float(line[1])/float(line[2]))
                 feedback_grade.append(this_line)
                 scores.append(float(line[1])/float(line[2]))
+
 
 
 #lists of lists that pair feedback with percent score on an assignment
@@ -99,10 +102,8 @@ def log_compare(p_dict):
     return log_dict
 
 
-
-#NGram stuff
-
 def cluster_string_by_score(fg,s):
+    #### EDIT THIS: c1 is upper bound, c2 is lower bound
     c1 = numpy.percentile(s, 50)
     c2 = numpy.percentile(s, 50)
     print c1
@@ -129,7 +130,7 @@ def cluster_string_by_score(fg,s):
     cluster_list.append(c3_dict)
     return cluster_list
 
-
+######
 clustered_dicts = cluster_string_by_score(feedback_grade, scores)
 
 c1_total = total_word_counts(clustered_dicts[0])
