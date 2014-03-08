@@ -213,6 +213,7 @@ with open(input_file, 'rU') as csvfile:
 
 #lists of lists that pair feedback with percent score on an assignment
 
+<<<<<<< HEAD
 clean_lines = list()
 
 word_percents = defaultdict(int)
@@ -407,3 +408,20 @@ with open('sentimentwords.csv', 'wb') as sentiment_w_out:
     for row in nrow:
         sentiment_word_writer.writerow(row)
 
+=======
+allwords = list()
+word_counts = defaultdict()
+for line in feedback:
+    linewords = line[0].split()
+    for word in allwords:           #could do a regex match here
+        word_counts[word] = word_counts[word] + 1
+        # allwords.append(word)
+
+#word_counts = defaultdict(int)
+#for word in allwords:
+    #word_counts[word] += 1
+sorted_keys = sorted(word_counts.keys(), key=lambda x: -word_counts[x])
+for key in sorted_keys:
+    print key+'\t'+word_counts[key]
+    #create a dictionary with lists of words with the value as the percent score
+>>>>>>> 42fc034a2ad0a13b2c625e7790f852e75625b553
