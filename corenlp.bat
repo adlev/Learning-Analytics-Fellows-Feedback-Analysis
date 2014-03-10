@@ -1,0 +1,1 @@
+java -cp c:\stanford-corenlp\stanford-corenlp-3.3.1.jar;c:\stanford-corenlp\stanford-corenlp-3.3.1-models.jar;c:\stanford-corenlp\xom.jar;c:\stanford-corenlp\jgrapht.jar -Xmx3g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner,parse,dcoref -file %1
