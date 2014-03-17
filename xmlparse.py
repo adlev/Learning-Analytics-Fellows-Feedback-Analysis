@@ -22,6 +22,7 @@ homework_words = list(['assignments', 'homework'])
 content_words = list(['content', 'material', 'slides'])
 lecture_words = list(['lecture', 'lectures'])
 textbook_words = list(['book', 'text', 'textbook', 'books', 'texts', 'textbooks'])
+instructor_words = list(['teacher', 'instructor', 'professor', 'he', 'she', 'they'])
 
 def output_concept_description(concept, output_header, top_k):
     print output_header
@@ -82,7 +83,7 @@ for sentence in sentencelist[0]:
                     continue
                 
                 if (tag == 'nsubj' or tag == 'nsubjpass'):
-                    if (d == 'i' or d == 'my' or d == 'he' or d == 'she' or d == 'we' or d == 'they' or d == 'it' or d == 'them' or d == 'they' or d == 'that' or d== 'me' or d=='you' or d=='us' or d=='this' or d == 'his'):
+                    if (d == 'i' or d == 'my' or d == 'we' or d == 'it' or d == 'them' or d == 'that' or d== 'me' or d=='you' or d=='us' or d=='this' or d == 'his'):
                         continue
                     if (g == 'going' or g == 'went' or g == 'got' or g == 'seem' or g == 'seemed' or g == 'are' or g == 'is' or g == 'were' or g == 'was' or g == 'has' or g == 'had' or g == 'have'):
                         continue
@@ -92,7 +93,7 @@ for sentence in sentencelist[0]:
                     count = targmodifiers.get(g, 0)
                     targmodifiers[g] = count + 1
 
-top_k = 10
+top_k = 1000
 exam_desc = concept_summary(targets, exam_words)
 output_concept_description(exam_desc, 'Exams:', top_k)
 print
@@ -104,6 +105,8 @@ output_concept_description(lecture_desc, 'Lectures:', top_k)
 print
 homework_desc = concept_summary(targets, homework_words)
 output_concept_description(homework_desc, 'Homework:', top_k)
+print
+output_concept_description(concept_summary(targets, instructor_words), 'Instructor:', top_k)
 print
 #all_desc = concept_summary(targets, None)
 #output_concept_description(all_desc, 'All:', 100)
