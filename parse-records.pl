@@ -3,8 +3,7 @@ use strict;
 # create infile from records: one student record per line
 #my $cmd = "java -cp stanford-corenlp-3.3.1.jar;stanford-corenlp-3.3.1-models.jar;xom.jar;joda-time.jar;jollyday.jar;ejml-0.23.jar -Xmx3g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit,pos,lemma,ner,parse,dcoref -file ".$infile;
 # open XML output file, enumerate thru documents and sentences and dependencies type=collapsed-dependencies
-#Course ID	Offer Nbr	Term	Session	Section	Eval Nbr	SeqNum	Qstn Nbr	Qstn Seqno	Text
-#001251	2	1960	1	001	118266	1	915	13
+
 
 my $delim = "-";
 my $input = shift;
